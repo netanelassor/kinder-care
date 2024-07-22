@@ -1,10 +1,10 @@
 import "./App.css";
 import { SidebarNav } from "./Components/Layout/Sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./Config/query.client";
 
 function App() {
-  const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>

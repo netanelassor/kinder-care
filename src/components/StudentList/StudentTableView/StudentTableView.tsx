@@ -33,7 +33,7 @@ export default function StudentListTableView({
                     {student.firstName} {student.lastName}
                   </Table.Cell>
                   <Table.Cell>
-                    {student.allergies.map((item, allergyItem) => {
+                    {student.allergies?.map((item, allergyItem) => {
                       return (
                         <div key={allergyItem}>
                           <Badge color="pink">{item}</Badge>

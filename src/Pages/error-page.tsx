@@ -5,8 +5,8 @@ export default function ErrorPage():JSX.Element {
   console.error(error);
 
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
+    <div id="error-page" className="flex flex-col w-screen w-full h-full justify-center">
+      <h1 className="text-3xl">Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
         <i>{error.statusText || error.message}</i>

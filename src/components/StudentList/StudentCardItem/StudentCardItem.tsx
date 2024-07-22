@@ -56,7 +56,7 @@ export default function StudentCardItem({ student }: Props): JSX.Element {
         </div>
         <div className="flex justify-between rounded px-2 py-2 mt-6 text-base outline outline-offset-2 outline-pink-500 items-center">
           <div className="text-start font-medium text-sm">Allergies:</div>
-          {student.allergies.map((item, allergyIndex) => {
+          {student.allergies?.map((item, allergyIndex) => {
             return (
               <Badge color="red" key={allergyIndex}>
                 {item}

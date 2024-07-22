@@ -3,32 +3,35 @@ import { Student } from "./Student.type";
 
 export async function fetchStudents():Promise<Student[]> {
   const response = await fetch(API_URLS.getStudents);
-  console.log("API_URLS.getStudents", API_URLS.getStudents);
   if (!response.ok) {
     const error: any = new Error("An error occurred while fetching the events");
     error.code = response.status;
     error.info = await response.json();
     throw error;
   }
-  return await response.json();
+  const { students } = await response.json();
+
+  return students;
 }
 
 
-export async function addStudent(newUser: { name: string; email: string }) {
-  const response = await fetch(API_URLS.addStudent, {
+export async function addStudent(newUser: Student) {
+  const response = await fetch(`${API_URLS.addStudent}`, {
     method: "POST",
+    body: JSON.stringify({student:newUser}),
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(newUser),
   });
 
   if (!response.ok) {
-    const error: any = new Error("An error occurred while fetching the events");
+    const error: any = new Error("An error occurred while creating the event");
     error.code = response.status;
     error.info = await response.json();
     throw error;
   }
 
-  return await response.json();
+  const { student } = await response.json();
+
+  return student;
 }
