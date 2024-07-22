@@ -1,5 +1,5 @@
-import { Student } from "./Student.type";
-import AvatarView from "../Shared/Avatar";
+import { Student } from "../../Student.type";
+import AvatarView from "../../../Shared/Avatar";
 import "./StudentCardItem.scss";
 import { Tooltip, Badge } from "flowbite-react";
 import { CiMail } from "react-icons/ci";

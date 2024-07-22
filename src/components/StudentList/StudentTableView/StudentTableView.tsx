@@ -1,4 +1,4 @@
-import { Gender, Student } from "./Student.type";
+import { Gender, Student } from "../Student.type";
 import { Tooltip, Badge, Table } from "flowbite-react";
 import { CiMail } from "react-icons/ci";
 import { BsTelephone } from "react-icons/bs";
