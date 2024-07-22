@@ -1,42 +1,62 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { useEffect, useState } from "react";
-import { Student } from "./Student.type";
-import Loading from "../shared/Loading";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../Shared/Loading";
 import StudentListTableView from "./StudentTableView";
 import StudentCardListView from "./StudentCardListView";
-import PageHeader from "../layout/PageHeader/PageHeader";
+import PageHeader from "../Layout/PageHeader/PageHeader";
+import { fetchStudents } from "./StudentList.service";
 
 export default function StudentList(): JSX.Element {
-  const [studentList, setStudentList] = useState<Student[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["studentList"],
+    queryFn: fetchStudents,
+  });
 
-  useEffect(() => {
-    fetch("https://user1721307475576.requestly.tech/getStudent")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data: Student[]) => {
-        setStudentList(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
+  //   useEffect(() => {
+  //     async function fetchStudents() {
+  //       try {
+  //         const response = await fetch(
+  //           "https://user1721307475576.requestly.tech/getStudent"
+  //         );
+  //         const resData = await response.json();
 
-  if (error) {
-    return <div>Error: {error}</div>;
+  //         if (!response.ok) {
+  //           throw new Error("Network response was not ok");
+  //         }
+
+  //         setStudentList(resData);
+  //         setLoading(false);
+  //       } catch (error: any) {
+  //         setError({
+  //           message: error.message || "error",
+  //         });
+  //       }
+  //     }
+
+  //     fetchStudents();
+  //   }, []);
+
+  if (isError) {
+    return (
+      <>
+        <PageHeader title="Student List" />
+        <div>Error: {error.message}</div>
+      </>
+    );
+  }
+
+  if (isPending) {
+    return (
+      <>
+        <PageHeader title="Student List" />
+        <Loading />
+      </>
+    );
   }
 
   return (
     <>
       <PageHeader title="Student List" />
-      {loading ? <Loading /> : null}
       <TabGroup>
         <div className="flex w-full justify-center px-4">
           <TabList className="flex gap-4 p-1 rounded-full justify-ce bg-gray-800">
@@ -51,10 +71,10 @@ export default function StudentList(): JSX.Element {
         <div className="flex h-screen w-full justify-center px-4">
           <TabPanels className="mt-10">
             <TabPanel>
-              <StudentListTableView studentList={studentList} />
+              <StudentListTableView studentList={data} />
             </TabPanel>
             <TabPanel>
-              <StudentCardListView studentList={studentList} />
+              <StudentCardListView studentList={data} />
             </TabPanel>
           </TabPanels>
         </div>

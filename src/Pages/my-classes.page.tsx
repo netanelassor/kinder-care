@@ -1,4 +1,4 @@
-import MyClasses from "../components/MyClasses/MyClasses";
+import MyClasses from "../Components/MyClasses/MyClasses";
 export default function MyClassesPage(): JSX.Element {
     return (
       <MyClasses/>

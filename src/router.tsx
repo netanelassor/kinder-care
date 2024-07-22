@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, StudentListPage, ChatPage, MyClassesPage, DashboardPage } from "./routes/index.ts";
+import { ErrorPage, StudentListPage, ChatPage, MyClassesPage, DashboardPage } from "./Pages/index.ts";
 import App from "./App.tsx";
 
 export const ROUTER = createBrowserRouter([

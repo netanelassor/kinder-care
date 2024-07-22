@@ -10,13 +10,7 @@ type Props = {
 export default function StudentListTableView({
   studentList,
 }: Props): JSX.Element {
-  const columnList: string[] = [
-    "ID",
-    "Name",
-    "Allergies",
-    "Gender",
-    "Parents"
-  ];
+  const columnList: string[] = ["ID", "Name", "Allergies", "Gender", "Parents"];
 
   return (
     <>
@@ -30,15 +24,21 @@ export default function StudentListTableView({
           <Table.Body className="divide-y">
             {studentList.map((student, studentIndex) => {
               return (
-                <Table.Row key={studentIndex} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Row
+                  key={studentIndex}
+                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                >
                   <Table.Cell>{student.id}</Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     {student.firstName} {student.lastName}
                   </Table.Cell>
                   <Table.Cell>
                     {student.allergies.map((item, allergyItem) => {
-                      return <div key={allergyItem}>
-                              <Badge color="pink">{item}</Badge></div>;
+                      return (
+                        <div key={allergyItem}>
+                          <Badge color="pink">{item}</Badge>
+                        </div>
+                      );
                     })}
                   </Table.Cell>
                   <Table.Cell>
@@ -47,7 +47,10 @@ export default function StudentListTableView({
                   <Table.Cell>
                     {student.parentContact.map((parent, parentIndex) => {
                       return (
-                        <div key={parentIndex} className="flex gap-6 justify-between">
+                        <div
+                          key={parentIndex}
+                          className="flex gap-6 justify-between"
+                        >
                           <div>
                             {parent.firstName} {parent.lastName}{" "}
                             {`(${parent.prefix})`}

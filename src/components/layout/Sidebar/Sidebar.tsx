@@ -1,4 +1,4 @@
-import AvatarView from "../../shared/Avatar";
+import AvatarView from "../../Shared/Avatar";
 import { Sidebar } from "flowbite-react";
 import logo from "../../../assets/favicon.ico";
 

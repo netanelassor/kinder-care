@@ -1,4 +1,4 @@
-import ChatCenter from "../components/Chat/Chat";
+import ChatCenter from "../Components/Chat/Chat";
 export default function ChatPage(): JSX.Element {
   return <ChatCenter />;
 }
