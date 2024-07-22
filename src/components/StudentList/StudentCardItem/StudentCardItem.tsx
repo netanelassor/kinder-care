@@ -1,5 +1,5 @@
-import { Student } from "../../Student.type";
-import AvatarView from "../../../Shared/Avatar";
+import { Student } from "../Student.type";
+import UserAvatar from "../../Shared/Avatar";
 import "./StudentCardItem.scss";
 import { Tooltip, Badge } from "flowbite-react";
 import { CiMail } from "react-icons/ci";
@@ -13,7 +13,7 @@ export default function StudentCardItem({ student }: Props): JSX.Element {
   return (
     <>
       <div className="card-item p-6 block rounded-lg shadow-lg bg-white hover:bg-gray-00 pointer text-gray-900 font-medium">
-        <AvatarView
+        <UserAvatar
           firstName={student.firstName}
           lastName={student.lastName}
           imgURL="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"

@@ -2,7 +2,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Shared/Loading";
 import StudentListTableView from "./StudentTableView/StudentTableView";
-import StudentCardListView from "./StudentCardListView";
+import StudentCardListView from "./StudentCardView/StudentCardListView";
 import PageHeader from "../Layout/PageHeader/PageHeader";
 import { fetchStudents } from "./StudentList.service";
 
