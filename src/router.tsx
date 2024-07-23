@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, StudentListPage, ChatPage, MyClassesPage, DashboardPage, NewStudentPage } from "./Pages/index.ts";
+import { ErrorPage, StudentListPage, ChatPage, MyClassesPage, DashboardPage, NewStudentPage, StudentDetailsPage } from "./Pages/index.ts";
 import App from "./App.tsx";
 
 export const ROUTER = createBrowserRouter([
@@ -25,6 +25,10 @@ export const ROUTER = createBrowserRouter([
             element: <NewStudentPage />,
           }
         ]
+      },
+      {
+        path: "/students:id",
+        element: <StudentDetailsPage />,
       },
       {
         path: "/messages",

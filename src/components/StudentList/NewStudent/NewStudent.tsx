@@ -46,6 +46,7 @@ export default function NewStudent(): JSX.Element {
       birthday: "32050504",
       gender: Gender.FEMALE,
       parentContact: parents,
+      profileImgUrl: `https://xsgames.co/randomusers/avatar.php?g=female`
     };
     console.log("newStudent", newStudent);
 

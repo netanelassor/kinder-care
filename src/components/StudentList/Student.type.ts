@@ -1,13 +1,13 @@
 export type ParentContact = {
   firstName: string;
   lastName: string;
-  prefix?:Gender;
+  prefix?: Gender;
   phone: string;
   email: string;
 };
 
 export type Student = {
-  intId?:string;
+  intId?: string;
   id: string;
   firstName: string;
   lastName: string;
@@ -16,6 +16,7 @@ export type Student = {
   parentContact: ParentContact[];
   allergies?: string[];
   specialNotes?: string;
+  profileImgUrl: string;
 };
 
 export enum Gender {

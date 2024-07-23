@@ -44,9 +44,10 @@ export function SidebarNav() {
               <Sidebar.Item
                 key={index}
                 icon={item.iconName}
+                href={item.routeName}
                 active={currentRouterLocation.pathname === item.routeName}
               >
-                <Link to={item.routeName}> {item.name}</Link>
+                 {item.name}
               </Sidebar.Item>
             );
           })}

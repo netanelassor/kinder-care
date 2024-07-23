@@ -11,7 +11,7 @@ export default function StudentCardListView({
     <>
       <div className="flex gap-4 flex-wrap">
         {studentList.map((student: Student, index) => {
-          return <StudentCardItem key={index} student={student} />;
+          return (<StudentCardItem key={index} student={student} />);
         })}
       </div>
     </>

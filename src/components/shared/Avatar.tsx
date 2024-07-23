@@ -9,11 +9,12 @@ export default function UserAvatar({
   lastName,
   imgURL,
 }: UserAvatarProps): JSX.Element {
+  
   return (
     <div className="flex flex-wrap items-center justify-center gap-3">
       <div className="h-10 w-10">
         <img
-          className="h-full w-full rounded-full object-cover object-center ring ring-white"
+          className="h-full w-full rounded-full object-cover object-center ring ring-white bg-blue-600"
           src={imgURL}
           alt=""
         />

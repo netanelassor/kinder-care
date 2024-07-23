@@ -44,6 +44,7 @@ app.get("/students", async (req, res) => {
       allergies: student.allergies,
       specialNotes: student.specialNotes,
       parentContact: student.parentContact,
+      profileImgUrl: student.profileImgUrl
     })),
   });
 });
@@ -81,15 +82,6 @@ app.post("/students", async (req, res) => {
     return res.status(400).json({ message: "Student is required" });
   }
 
-  console.log(student);
-  console.log('student.indId', !student.intId?.trim());
-  console.log('student.id', !student.id?.trim());
-  console.log('student.lastName', !student.lastName?.trim());
-  console.log('student.gender', !student.gender?.trim());
-  console.log('student.birthday', !student.birthday?.trim());
-  console.log('student.parentContact', !student.parentContact);
-
-
   if (
     !student.intId?.trim() ||
     !student.id?.trim() ||
@@ -97,6 +89,7 @@ app.post("/students", async (req, res) => {
     !student.lastName?.trim() ||
     !student.gender?.trim() ||
     !student.birthday?.trim() ||
+    !student.profileImgUrl?.trim() ||
     !student.parentContact
   ) {
     return res.status(400).json({ message: "Invalid data provided." });
