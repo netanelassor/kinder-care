@@ -53,7 +53,7 @@ export default function StudentList(): JSX.Element {
           </div>
           <div className="action-area flex items-center justify-center p-4">
             <Button
-              gradientDuoTone="greenToBlue"
+              gradientDuoTone="purpleToBlue"
               pill
               onClick={() => setIsOpen(true)}
             >

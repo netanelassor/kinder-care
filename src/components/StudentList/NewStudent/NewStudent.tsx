@@ -65,7 +65,7 @@ export default function NewStudent({
         <Drawer.Items>
           <StudentForm onSubmit={handleSubmit}>
             <div className="flex justify-end gap-4">
-              <Button type="submit" gradientDuoTone="greenToBlue" pill>Create</Button>
+              <Button type="submit" gradientDuoTone="purpleToBlue" pill>Create</Button>
               <Button color="gray" onClick={() => handleClose()} pill>
                 Cancel
               </Button>
@@ -73,20 +73,6 @@ export default function NewStudent({
           </StudentForm>
         </Drawer.Items>
       </Drawer>
-
-      {/* <Modal show={true} size="3xl" onClose={() => navigate("../")} popup>
-        <Modal.Header className="text-gray-900">Add New Student</Modal.Header>
-        <Modal.Body className="text-gray-900">
-          <StudentForm onSubmit={handleSubmit}>
-            <div className="flex justify-end gap-4">
-              <Button type="submit">Create</Button>
-              <Button color="gray" onClick={() => navigate("../")}>
-                Cancel
-              </Button>
-            </div>
-          </StudentForm>
-        </Modal.Body>
-      </Modal> */}
     </>
   );
 }

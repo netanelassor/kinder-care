@@ -12,7 +12,7 @@ export function SidebarNav() {
   const SidebarList: NavItemType[] = [
     {
       name: "Home",
-      routeName: "/home",
+      routeName: "/",
       iconName: IoHomeOutline,
       icon: <IoHomeOutline />,
     },
@@ -34,10 +34,10 @@ export function SidebarNav() {
       iconName: PiStudent,
       icon: <PiStudent />,
     },
-    { name: "Billing", routeName: "", iconName: GrMoney, icon: <GrMoney /> },
+    { name: "Billing", routeName: "/billing", iconName: GrMoney, icon: <GrMoney /> },
     {
       name: "Learning",
-      routeName: "",
+      routeName: "/learning",
       iconName: PiBooksDuotone,
       icon: <PiBooksDuotone />,
     },
