@@ -9,7 +9,7 @@ export default function StudentCardListView({
 }: Props): JSX.Element {
   return (
     <>
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 flex-wrap justify-between flex-1">
         {studentList.map((student: Student, index) => {
           return (<StudentCardItem key={index} student={student} />);
         })}

@@ -48,7 +48,7 @@ export default function NewStudent({
       firstName: formData.firstName,
       lastName: formData.lastName,
       allergies: formData.allergies || [],
-      birthday: new Date(formData.birthday),
+      birthday: new Date(formData.birthday).toISOString(),
       gender: formData.gender,
       parentContact: parents,
       profileImgUrl: `https://xsgames.co/randomusers/avatar.php?g=female`,
@@ -61,15 +61,14 @@ export default function NewStudent({
   return (
     <>
       <Drawer open={isOpen} onClose={() => handleClose()} position="bottom" >
-        <Drawer.Header className="text-gray-900" title="Add New Student" titleIcon={FaRegUser} />
-        <Drawer.Items className="text-gray-900">
+        <Drawer.Header title="Add New Student" titleIcon={FaRegUser} />
+        <Drawer.Items>
           <StudentForm onSubmit={handleSubmit}>
             <div className="flex justify-end gap-4">
               <Button type="submit" gradientDuoTone="greenToBlue" pill>Create</Button>
               <Button color="gray" onClick={() => handleClose()} pill>
                 Cancel
               </Button>
-
             </div>
           </StudentForm>
         </Drawer.Items>

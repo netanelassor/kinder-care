@@ -12,7 +12,7 @@ export type Student = {
   firstName: string;
   lastName: string;
   gender: Gender;
-  birthday: Date; // ISO 8601 format
+  birthday: string; // ISO 8601 format
   parentContact: ParentContact[];
   allergies?: string[];
   specialNotes?: string;

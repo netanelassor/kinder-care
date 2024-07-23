@@ -36,7 +36,7 @@ const StudentForm = ({ onSubmit, children }: Props) => {
     >
       <div className="flex gap-20 h-80  w-full">
         <div className="flex flex-col gap-4 flex-1">
-          <h3 className="text-start font-bold">Children Details</h3>
+          <h3 className="text-start font-bold text-white">Children Details</h3>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
               <Label htmlFor="firstName" value="First Name" />
@@ -54,7 +54,7 @@ const StudentForm = ({ onSubmit, children }: Props) => {
 
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="birthday" value="Birthday" />
+              <Label htmlFor="birthday" value="Date Of Birth" />
               <Datepicker
                 minDate={birthdayMinDate}
                 maxDate={birthdayMaxDate}
@@ -80,7 +80,7 @@ const StudentForm = ({ onSubmit, children }: Props) => {
         </div>
 
         <div className="flex flex-col gap-4 flex-1">
-          <h3 className="text-start font-bold">1st Parent</h3>
+          <h3 className="text-start font-bold text-white">1st Parent</h3>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
               <Label
@@ -131,7 +131,7 @@ const StudentForm = ({ onSubmit, children }: Props) => {
         </div>
 
         <div className="flex flex-col gap-4 flex-1">
-          <h3 className="text-start font-bold">2nd Parent</h3>
+          <h3 className="text-start font-bold text-white">2nd Parent</h3>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
               <Label

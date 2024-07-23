@@ -51,7 +51,7 @@ export default function StudentList(): JSX.Element {
               </Tab>
             </TabList>
           </div>
-          <div className="action-area flex items-center p-4">
+          <div className="action-area flex items-center justify-center p-4">
             <Button
               gradientDuoTone="greenToBlue"
               pill

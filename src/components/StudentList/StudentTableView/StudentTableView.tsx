@@ -1,7 +1,6 @@
 import { Gender, Student } from "../Student.type";
 import { Tooltip, Badge, Table } from "flowbite-react";
-import { CiMail } from "react-icons/ci";
-import { BsTelephone } from "react-icons/bs";
+import { GrUser, GrUserFemale, GrPhone, GrMailOption} from "react-icons/gr";
 
 type Props = {
   studentList: Student[];
@@ -42,9 +41,12 @@ export default function StudentListTableView({
                     })}
                   </Table.Cell>
                   <Table.Cell>
-                    {student.gender === Gender.MALE ? "Boy" : "Girl"}
+                    <div className="flex items-center justify-center">                    
+                      {student.gender === Gender.MALE ? <GrUser className="text-xl text-blue-600"/> : <GrUserFemale className="text-xl text-pink-600"/>}
+                    </div>
                   </Table.Cell>
                   <Table.Cell>
+                    <div className="flex flex-col gap-2">
                     {student.parentContact.map((parent, parentIndex) => {
                       return (
                         <div
@@ -58,19 +60,20 @@ export default function StudentListTableView({
                           <div className="flex gap-3">
                             <Tooltip content={parent.email}>
                               <a href={`mailto:${parent.email}`}>
-                                <CiMail className="size-5 text-blue-500" />
+                                <GrMailOption className="size-5 text-violet-500" />
                               </a>
                             </Tooltip>
 
                             <Tooltip content={parent.phone}>
                               <a href={`tel:${parent.phone}`}>
-                                <BsTelephone className="size-5 text-blue-500" />
+                                <GrPhone className="size-5 text-violet-500" />
                               </a>
                             </Tooltip>
                           </div>
                         </div>
                       );
                     })}
+                    </div>
                   </Table.Cell>
                 </Table.Row>
               );
