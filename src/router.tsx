@@ -1,5 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, StudentListPage, ChatPage, MyClassesPage, DashboardPage, NewStudentPage, StudentDetailsPage } from "./Pages/index.ts";
+import {
+  ErrorPage,
+  StudentListPage,
+  ChatPage,
+  MyClassesPage,
+  DashboardPage,
+  StudentListOutlet,
+  StudentDetailsPage,
+} from "./Pages/index.ts";
 import App from "./App.tsx";
 
 export const ROUTER = createBrowserRouter([
@@ -18,17 +26,17 @@ export const ROUTER = createBrowserRouter([
       },
       {
         path: "/students",
-        element: <StudentListPage />,
+        element: <StudentListOutlet />,
         children: [
           {
-            path: "/students/new",
-            element: <NewStudentPage />,
-          }
+            path: "/students",
+            element: <StudentListPage />,
+          },
+          {
+            path: "/students/:id",
+            element: <StudentDetailsPage />,
+          },
         ]
-      },
-      {
-        path: "/students:id",
-        element: <StudentDetailsPage />,
       },
       {
         path: "/messages",

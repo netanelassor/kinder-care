@@ -49,20 +49,14 @@ app.get("/students", async (req, res) => {
   });
 });
 
-app.get("/students:id", async (req, res) => {
-  const { id } = req.params;
+app.get("/students/:id", async (req, res) => {
+  console.log('req.params', req.params);
 
+  const { id } = req.params;
   const studentsFileContent = await fs.readFile("./data/students.json");
   let studentList = JSON.parse(studentsFileContent);
 
-  const student = student.find((student) => student.indId === id);
-
-  if (search) {
-    studentList = studentList.filter((student) => {
-      const searchableText = `${student.firstName} ${student.lastName}`;
-      return searchableText.toLowerCase().includes(search.toLowerCase());
-    });
-  }
+  const student = studentList.find((student) => student.id === id);
 
   if (!student) {
     return res
@@ -81,9 +75,8 @@ app.post("/students", async (req, res) => {
   if (!student) {
     return res.status(400).json({ message: "Student is required" });
   }
-
+  
   if (
-    !student.intId?.trim() ||
     !student.id?.trim() ||
     !student.firstName?.trim() ||
     !student.lastName?.trim() ||

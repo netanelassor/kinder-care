@@ -1,24 +1,30 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Modal } from "flowbite-react";
+import { Button, Drawer } from "flowbite-react";
 import StudentForm from "../StudentForm/StudentForm";
 import { addStudent } from "../StudentList.service";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../../Config/query.client";
 import { Gender, ParentContact, Student } from "../Student.type";
+import { FaRegUser } from "react-icons/fa";
 
-export default function NewStudent(): JSX.Element {
-  const navigate = useNavigate();
+type NewStudentProp = {
+  isOpen: boolean;
+  handleClose: () => void;
+};
+
+export default function NewStudent({
+  isOpen,
+  handleClose,
+}: NewStudentProp): JSX.Element {
 
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: addStudent,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["studentList"] });
-      navigate("/students");
+      () => handleClose();
     },
   });
 
   function handleSubmit(formData: any) {
-    console.log("handleSubmit formData", formData);
 
     const parents: ParentContact[] = [
       {
@@ -38,24 +44,38 @@ export default function NewStudent(): JSX.Element {
     ];
 
     const newStudent: Student = {
-      intId: "xx",
-      id: "xx",
+      id: formData.id,
       firstName: formData.firstName,
       lastName: formData.lastName,
       allergies: formData.allergies || [],
-      birthday: "32050504",
-      gender: Gender.FEMALE,
+      birthday: new Date(formData.birthday),
+      gender: formData.gender,
       parentContact: parents,
-      profileImgUrl: `https://xsgames.co/randomusers/avatar.php?g=female`
+      profileImgUrl: `https://xsgames.co/randomusers/avatar.php?g=female`,
     };
-    console.log("newStudent", newStudent);
 
+    console.log('newStudent',newStudent);
     mutate(newStudent);
   }
 
   return (
     <>
-      <Modal show={true} size="3xl" onClose={() => navigate("../")} popup>
+      <Drawer open={isOpen} onClose={() => handleClose()} position="bottom" >
+        <Drawer.Header className="text-gray-900" title="Add New Student" titleIcon={FaRegUser} />
+        <Drawer.Items className="text-gray-900">
+          <StudentForm onSubmit={handleSubmit}>
+            <div className="flex justify-end gap-4">
+              <Button type="submit" gradientDuoTone="greenToBlue" pill>Create</Button>
+              <Button color="gray" onClick={() => handleClose()} pill>
+                Cancel
+              </Button>
+
+            </div>
+          </StudentForm>
+        </Drawer.Items>
+      </Drawer>
+
+      {/* <Modal show={true} size="3xl" onClose={() => navigate("../")} popup>
         <Modal.Header className="text-gray-900">Add New Student</Modal.Header>
         <Modal.Body className="text-gray-900">
           <StudentForm onSubmit={handleSubmit}>
@@ -67,7 +87,7 @@ export default function NewStudent(): JSX.Element {
             </div>
           </StudentForm>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </>
   );
 }

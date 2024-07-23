@@ -25,7 +25,7 @@ export async function fetchStudent({ id, signal }: any): Promise<Student> {
   }
   const { student } = await response.json();
 
-  return student as Student;
+  return student;
 }
 
 export async function addStudent(newUser: Student) {

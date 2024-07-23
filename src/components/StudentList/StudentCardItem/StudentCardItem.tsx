@@ -69,7 +69,7 @@ export default function StudentCardItem({ student }: Props): JSX.Element {
             })}
           </div>
         ) : null}
-        <div className="mt-auto items-center flex justify-center">
+        <div className="mt-auto items-center flex flex-col">
           <Button color="light" pill>
             <Link to={`/students/${student.id}`}>View Details</Link>
           </Button>
