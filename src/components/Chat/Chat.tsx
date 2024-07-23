@@ -1,4 +1,4 @@
-import PageHeader from "../layout/PageHeader/PageHeader";
+import PageHeader from "../Layout/PageHeader/PageHeader";
 export default function ChatCenter(): JSX.Element {
   return (
     <>

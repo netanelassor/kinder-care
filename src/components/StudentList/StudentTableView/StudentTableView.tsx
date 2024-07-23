@@ -1,7 +1,6 @@
-import { Gender, Student } from "./Student.type";
+import { Gender, Student } from "../Student.type";
 import { Tooltip, Badge, Table } from "flowbite-react";
-import { CiMail } from "react-icons/ci";
-import { BsTelephone } from "react-icons/bs";
+import { GrUser, GrUserFemale, GrPhone, GrMailOption} from "react-icons/gr";
 
 type Props = {
   studentList: Student[];
@@ -10,13 +9,7 @@ type Props = {
 export default function StudentListTableView({
   studentList,
 }: Props): JSX.Element {
-  const columnList: string[] = [
-    "ID",
-    "Name",
-    "Allergies",
-    "Gender",
-    "Parents"
-  ];
+  const columnList: string[] = ["ID", "Name", "Allergies", "Gender", "Parents"];
 
   return (
     <>
@@ -30,24 +23,36 @@ export default function StudentListTableView({
           <Table.Body className="divide-y">
             {studentList.map((student, studentIndex) => {
               return (
-                <Table.Row key={studentIndex} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Row
+                  key={studentIndex}
+                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                >
                   <Table.Cell>{student.id}</Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     {student.firstName} {student.lastName}
                   </Table.Cell>
                   <Table.Cell>
-                    {student.allergies.map((item, allergyItem) => {
-                      return <div key={allergyItem}>
-                              <Badge color="pink">{item}</Badge></div>;
+                    {student.allergies?.map((item, allergyItem) => {
+                      return (
+                        <div key={allergyItem}>
+                          <Badge color="pink">{item}</Badge>
+                        </div>
+                      );
                     })}
                   </Table.Cell>
                   <Table.Cell>
-                    {student.gender === Gender.MALE ? "Boy" : "Girl"}
+                    <div className="flex items-center justify-center">                    
+                      {student.gender === Gender.MALE ? <GrUser className="text-xl text-blue-600"/> : <GrUserFemale className="text-xl text-pink-600"/>}
+                    </div>
                   </Table.Cell>
                   <Table.Cell>
+                    <div className="flex flex-col gap-2">
                     {student.parentContact.map((parent, parentIndex) => {
                       return (
-                        <div key={parentIndex} className="flex gap-6 justify-between">
+                        <div
+                          key={parentIndex}
+                          className="flex gap-6 justify-between"
+                        >
                           <div>
                             {parent.firstName} {parent.lastName}{" "}
                             {`(${parent.prefix})`}
@@ -55,19 +60,20 @@ export default function StudentListTableView({
                           <div className="flex gap-3">
                             <Tooltip content={parent.email}>
                               <a href={`mailto:${parent.email}`}>
-                                <CiMail className="size-5 text-blue-500" />
+                                <GrMailOption className="size-5 text-violet-500" />
                               </a>
                             </Tooltip>
 
                             <Tooltip content={parent.phone}>
                               <a href={`tel:${parent.phone}`}>
-                                <BsTelephone className="size-5 text-blue-500" />
+                                <GrPhone className="size-5 text-violet-500" />
                               </a>
                             </Tooltip>
                           </div>
                         </div>
                       );
                     })}
+                    </div>
                   </Table.Cell>
                 </Table.Row>
               );
