@@ -47,14 +47,14 @@ export default function NewStudent({
       id: formData.id,
       firstName: formData.firstName,
       lastName: formData.lastName,
-      allergies: formData.allergies || [],
+      allergies: formData.allergies.split(',') || [],
       birthday: new Date(formData.birthday).toISOString(),
       gender: formData.gender,
       parentContact: parents,
       profileImgUrl: `https://xsgames.co/randomusers/avatar.php?g=female`,
     };
 
-    console.log('newStudent',newStudent);
+    //console.log('newStudent',newStudent);
     mutate(newStudent);
   }
 

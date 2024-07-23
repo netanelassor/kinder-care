@@ -1,5 +1,7 @@
-import { Label, TextInput, Textarea, Datepicker, Select } from "flowbite-react";
+import { Label, TextInput, Datepicker, Select, Button, Textarea } from "flowbite-react";
 import { Gender } from "../Student.type";
+import { useState } from "react";
+import { IoClose, IoAddCircle } from "react-icons/io5";
 
 type Props = {
   onSubmit: any;
@@ -7,6 +9,9 @@ type Props = {
 };
 
 const StudentForm = ({ onSubmit, children }: Props) => {
+  const [allergies, setAllergies] = useState<string[]>([]);
+  const [newAllergy, setNewAllergy] = useState<string>("");
+
   const currentDate = new Date();
   const birthdayMaxDate = new Date(
     currentDate.getFullYear(),
@@ -27,6 +32,18 @@ const StudentForm = ({ onSubmit, children }: Props) => {
 
     onSubmit({ ...data });
   }
+
+  function handleAddAllergy() {
+    if (newAllergy.trim() !== "") {
+      setAllergies([...allergies, newAllergy.trim()]);
+      setNewAllergy("");
+    }
+  };
+
+  const handleRemoveAllergy = (index: number) => {
+    const newAllergies = allergies.filter((_, i) => i !== index);
+    setAllergies(newAllergies);
+  };
 
   return (
     <form
@@ -64,17 +81,60 @@ const StudentForm = ({ onSubmit, children }: Props) => {
             <div className="flex flex-col text-start w-full">
               <Label htmlFor="gender" value="Gender" />
               <Select id="gender" name="gender" required>
-                {Object.entries(Gender).map(([objKey, value])=>{
-                  return <option key={objKey} value={value}>{value}</option>
+                {Object.entries(Gender).map(([objKey, value]) => {
+                  return (
+                    <option key={objKey} value={value}>
+                      {value}
+                    </option>
+                  );
                 })}
               </Select>
             </div>
-
           </div>
-          <div className="flex">
+
+          <div className="flex bg-gray-700 p-4 rounded">
             <div className="flex flex-col text-start w-full">
               <Label htmlFor="allergies" value="Allergies" />
-              <Textarea id="allergies" name="allergies" rows={2} />
+              <Textarea id="allergies" name="allergies" rows={2} value={allergies} className="hidden"/>
+
+              <div className="flex flex-col gap-4">
+                <div className="flex gap-2">
+                  <TextInput
+                    id="allergiesChip"
+                    name="allergiesChip"
+                    value={newAllergy}
+                    onChange={(e) => setNewAllergy(e.target.value)}
+                    placeholder="Add a new allergy"
+                    type="text"      
+                  />
+
+                  <button
+                  type="button"
+                    onClick={handleAddAllergy}
+                    className="text-green-400 text-4xl hover:text-green-500"
+                  >
+                    <IoAddCircle />
+                  </button>
+                  
+                </div>
+                <div className="flex gap-2">
+                  {allergies.map((allergy, index) => (
+                    <div
+                      key={index}
+                      className="flex gap-2 items-center justify-between px-2 py-1 rounded-full text-xs bg-red-500 text-white text-center"
+                    >
+                      {allergy}
+                      <button
+                      type="button"
+                        onClick={() => handleRemoveAllergy(index)}
+                        className="bg-red-900 text-white rounded-full w-5 h-5 flex items-center justify-center hover:bg-red-800 "
+                      >
+                        <IoClose />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

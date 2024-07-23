@@ -10,7 +10,7 @@ import NewStudent from "./NewStudent/NewStudent";
 import { useState } from "react";
 
 export default function StudentList(): JSX.Element {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleClose = () => setIsOpen(false);
 
   const { data, isPending, isError, error } = useQuery({

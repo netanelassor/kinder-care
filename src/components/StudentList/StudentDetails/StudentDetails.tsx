@@ -3,7 +3,7 @@ import { fetchStudent } from "../StudentList.service";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading";
 import ErrorBlock from "../../Shared/ErrorBlock/ErrorBlock";
-import { Badge, Button } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { format, parseISO } from "date-fns";
 import { FaBirthdayCake } from "react-icons/fa";
 import PageHeader from "../../Layout/PageHeader/PageHeader";
@@ -11,7 +11,6 @@ import { HiOutlineArrowLeft, HiPencil } from "react-icons/hi";
 
 export default function StudentDetails(): JSX.Element {
   const { id } = useParams();
-  console.log(id);
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["studentList", id],
@@ -54,18 +53,18 @@ export default function StudentDetails(): JSX.Element {
                 <div className="flex flex-col flex-wrap items-center justify-center gap-3">
                   <div className="h-20 w-20">
                     <img
-                      className="h-full w-full rounded-full object-cover object-center ring ring-white bg-blue-600"
+                      className="h-full w-full rounded-full object-cover object-center ring ring-white bg-indigo-600"
                       src={data.profileImgUrl}
                       alt={data.firstName}
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <div className="text-xl font-medium text-secondary-500">
+                    <div className="text-xl font-bold font-medium text-secondary-500">
                       {data.firstName} {data.lastName}
                     </div>
-                    <div className="flex gap-2 items-center">
-                      <FaBirthdayCake className="text-fuchsia-600" />
-                      <div className="text-sm text-fuchsia-600">
+                    <div className="flex gap-2 items-center px-2 py-1 rounded-full text-xs bg-indigo-600 text-white">
+                      <FaBirthdayCake className="text-sm" />
+                      <div>
                         {format(parseISO(data.birthday), "MMMM do, yyyy")}
                       </div>
                     </div>
@@ -78,9 +77,9 @@ export default function StudentDetails(): JSX.Element {
                     <h3 className="text-sm">Allergies:</h3>
                     {data.allergies?.map((item, allergyIndex) => {
                       return (
-                        <Badge color="red" key={allergyIndex}>
+                        <div key={allergyIndex} className="flex gap-2 items-center justify-center px-2 py-1 rounded-full text-xs bg-red-500 text-white text-center">
                           {item}
-                        </Badge>
+                        </div>
                       );
                     })}
                   </div>
