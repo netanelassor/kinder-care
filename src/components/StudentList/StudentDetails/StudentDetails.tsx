@@ -45,7 +45,7 @@ export default function StudentDetails(): JSX.Element {
               <Button gradientDuoTone="purpleToBlue" outline pill>
                 <div className="flex gap-2">
                   <HiOutlineArrowLeft className="h-5 w-5" />
-                  <Link to="/students">Go back to list</Link>
+                  <Link to="../">Go back to list</Link>
                 </div>
               </Button>
             </div>

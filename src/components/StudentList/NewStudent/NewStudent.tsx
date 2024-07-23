@@ -65,7 +65,7 @@ export default function NewStudent({
         <Drawer.Items>
           <StudentForm onSubmit={handleSubmit}>
             <div className="flex justify-end gap-4">
-              <Button type="submit" gradientDuoTone="greenToBlue" pill>Create</Button>
+              <Button type="submit" gradientDuoTone="purpleToBlue" pill>Create</Button>
               <Button color="gray" onClick={() => handleClose()} pill>
                 Cancel
               </Button>

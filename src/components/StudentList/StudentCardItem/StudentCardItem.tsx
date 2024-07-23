@@ -2,10 +2,9 @@ import { Student } from "../Student.type";
 import UserAvatar from "../../Shared/Avatar";
 import "./StudentCardItem.scss";
 import { Tooltip, Badge, Button, Card } from "flowbite-react";
-import { CiMail } from "react-icons/ci";
-import { BsTelephone } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { FaInfoCircle } from "react-icons/fa";
+import { GrPhone, GrMailOption } from "react-icons/gr";
 
 type Props = {
   student: Student;
@@ -36,13 +35,13 @@ export default function StudentCardItem({ student }: Props): JSX.Element {
                   <div className="flex gap-3">
                     <Tooltip content={parent.email}>
                       <a href={`mailto:${parent.email}`}>
-                        <CiMail className="size-5 text-green-700" />
+                        <GrMailOption className="size-5 text-violet-500" />
                       </a>
                     </Tooltip>
 
                     <Tooltip content={parent.phone}>
                       <a href={`tel:${parent.phone}`}>
-                        <BsTelephone className="size-5 text-green-700" />
+                        <GrPhone className="size-5 text-violet-500" />
                       </a>
                     </Tooltip>
                   </div>
