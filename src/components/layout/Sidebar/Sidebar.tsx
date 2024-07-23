@@ -24,7 +24,7 @@ export function SidebarNav() {
     },
     {
       name: "Messaging",
-      routeName: "/messages",
+      routeName: "/chat",
       iconName: PiWechatLogoDuotone,
       icon: <PiWechatLogoDuotone />,
     },

@@ -1,0 +1,247 @@
+[
+    {
+      "conversation_id": "conv1",
+      "participants": [
+        {
+          "user_id": "user1",
+          "name": "John Doe",
+          "profile_pic": "https://example.com/user1.jpg",
+          "status": "online"
+        },
+        {
+          "user_id": "user2",
+          "name": "Jane Smith",
+          "profile_pic": "https://example.com/user2.jpg",
+          "status": "offline"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "msg1",
+          "sender_id": "user1",
+          "text": "Hey Jane, how are you?",
+          "timestamp": "2024-07-22T10:00:00Z",
+          "status": "delivered"
+        },
+        {
+          "message_id": "msg2",
+          "sender_id": "user2",
+          "text": "Hi John! I'm good, thanks. How about you?",
+          "timestamp": "2024-07-22T10:01:00Z",
+          "status": "read"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv2",
+      "participants": [
+        {
+          "user_id": "user3",
+          "name": "Alice Johnson",
+          "profile_pic": "https://example.com/user3.jpg",
+          "status": "online"
+        },
+        {
+          "user_id": "user4",
+          "name": "Bob Brown",
+          "profile_pic": "https://example.com/user4.jpg",
+          "status": "offline"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "msg3",
+          "sender_id": "user3",
+          "text": "Hey Bob, did you get my last email?",
+          "timestamp": "2024-07-22T11:00:00Z",
+          "status": "sent"
+        },
+        {
+          "message_id": "msg4",
+          "sender_id": "user4",
+          "text": "Yes, I did. I'll reply soon.",
+          "timestamp": "2024-07-22T11:02:00Z",
+          "status": "delivered"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv3",
+      "participants": [
+        {
+          "user_id": "user5",
+          "name": "Charlie Green",
+          "profile_pic": "https://example.com/user5.jpg",
+          "status": "online"
+        },
+        {
+          "user_id": "user6",
+          "name": "David Blue",
+          "profile_pic": "https://example.com/user6.jpg",
+          "status": "offline"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "msg5",
+          "sender_id": "user5",
+          "text": "Are you coming to the meeting?",
+          "timestamp": "2024-07-22T12:00:00Z",
+          "status": "sent"
+        },
+        {
+          "message_id": "msg6",
+          "sender_id": "user6",
+          "text": "Yes, I'll be there.",
+          "timestamp": "2024-07-22T12:05:00Z",
+          "status": "read"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv4",
+      "participants": [
+        {
+          "user_id": "user7",
+          "name": "Eva White",
+          "profile_pic": "https://example.com/user7.jpg",
+          "status": "online"
+        },
+        {
+          "user_id": "user8",
+          "name": "Frank Black",
+          "profile_pic": "https://example.com/user8.jpg",
+          "status": "offline"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "msg7",
+          "sender_id": "user7",
+          "text": "Don't forget the deadline!",
+          "timestamp": "2024-07-22T13:00:00Z",
+          "status": "delivered"
+        },
+        {
+          "message_id": "msg8",
+          "sender_id": "user8",
+          "text": "Thanks for the reminder!",
+          "timestamp": "2024-07-22T13:10:00Z",
+          "status": "read"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv5",
+      "participants": [
+        {
+          "user_id": "user9",
+          "name": "Grace Yellow",
+          "profile_pic": "https://example.com/user9.jpg",
+          "status": "online"
+        },
+        {
+          "user_id": "user10",
+          "name": "Hank Gray",
+          "profile_pic": "https://example.com/user10.jpg",
+          "status": "offline"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "msg9",
+          "sender_id": "user9",
+          "text": "Can we reschedule our meeting?",
+          "timestamp": "2024-07-22T14:00:00Z",
+          "status": "sent"
+        },
+        {
+          "message_id": "msg10",
+          "sender_id": "user10",
+          "text": "Sure, how about tomorrow?",
+          "timestamp": "2024-07-22T14:05:00Z",
+          "status": "delivered"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv6",
+      "participants": [
+        {
+          "user_id": "user11",
+          "name": "Ivy Red",
+          "profile_pic": "https://example.com/user11.jpg",
+          "status": "online"
+        },
+        {
+          "user_id": "user12",
+          "name": "Jack Pink",
+          "profile_pic": "https://example.com/user12.jpg",
+          "status": "offline"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "msg11",
+          "sender_id": "user11",
+          "text": "Let's catch up over coffee!",
+          "timestamp": "2024-07-22T15:00:00Z",
+          "status": "sent"
+        },
+        {
+          "message_id": "msg12",
+          "sender_id": "user12",
+          "text": "Sounds good to me!",
+          "timestamp": "2024-07-22T15:10:00Z",
+          "status": "read"
+        }
+      ]
+    },
+    {
+      "conversation_id": "group1",
+      "participants": [
+        {
+          "user_id": "user1",
+          "name": "John Doe",
+          "profile_pic": "https://example.com/user1.jpg",
+          "status": "online"
+        },
+        {
+          "user_id": "user2",
+          "name": "Jane Smith",
+          "profile_pic": "https://example.com/user2.jpg",
+          "status": "offline"
+        },
+        {
+          "user_id": "user3",
+          "name": "Alice Johnson",
+          "profile_pic": "https://example.com/user3.jpg",
+          "status": "online"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "msg13",
+          "sender_id": "user1",
+          "text": "Hey everyone, let's plan our trip!",
+          "timestamp": "2024-07-22T16:00:00Z",
+          "status": "delivered"
+        },
+        {
+          "message_id": "msg14",
+          "sender_id": "user2",
+          "text": "I'm so excited for this!",
+          "timestamp": "2024-07-22T16:10:00Z",
+          "status": "read"
+        },
+        {
+          "message_id": "msg15",
+          "sender_id": "user3",
+          "text": "Can't wait to start planning!",
+          "timestamp": "2024-07-22T16:15:00Z",
+          "status": "delivered"
+        }
+      ]
+    }
+  ]
+  

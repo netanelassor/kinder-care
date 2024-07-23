@@ -75,7 +75,7 @@ app.post("/students", async (req, res) => {
   if (!student) {
     return res.status(400).json({ message: "Student is required" });
   }
-  
+
   if (
     !student.id?.trim() ||
     !student.firstName?.trim() ||
@@ -101,6 +101,34 @@ app.post("/students", async (req, res) => {
   await fs.writeFile("./data/students.json", JSON.stringify(studentList));
 
   res.json({ student: newStudent });
+});
+
+app.get("/chats", async (req, res) => {
+  const chatFileContent = await fs.readFile("./data/chats.json");
+  let chatList = JSON.parse(chatFileContent);
+
+  res.json({
+    chat: chatList
+  });
+});
+
+app.get("/chats/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const chatFileContent = await fs.readFile("./data/chats.json");
+  let chatList = JSON.parse(chatFileContent);
+
+  const selectedChat = chatList.find((c) => c.conversation_id === id);
+  console.log('selectedChat',selectedChat);
+  if (!selectedChat) {
+    return res
+      .status(404)
+      .json({ message: `For the id ${id}, no student could be found.` });
+  }
+
+  res.json({
+    chat: selectedChat
+  });
 });
 
 app.listen(port, () => {

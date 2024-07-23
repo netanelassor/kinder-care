@@ -5,7 +5,7 @@ const API_BASE_URL = "http://localhost:3001/";
 
 const API_URLS = {
   getStudents: `${API_BASE_URL}students`,
-  getMessages: `${API_BASE_URL}getConversationCenter`,
+  getMessages: `${API_BASE_URL}chats`,
   addStudent: `${API_BASE_URL}students`,
 };
 
