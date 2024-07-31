@@ -12,8 +12,8 @@ export const GENERAL = {
     UPDATE:"Update",
     FORM_PAGE:{
         STUDENT_DETAILS_SECTION:"Student Details",
-        FIRST_PARENTS_DETAILS_SECTION:"1st Parents Details",
-        SECOND_PARENTS_DETAILS_SECTION:"2st Parents Details",
+        FIRST_PARENTS_DETAILS_SECTION:"1st Parent Details",
+        SECOND_PARENTS_DETAILS_SECTION:"2st Parent Details",
         FIRST_NAME_LBL:"First Name",
         LAST_NAME_LBL:"Last Name",
         ID_LBL:"ID",
