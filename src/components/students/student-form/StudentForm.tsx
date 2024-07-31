@@ -5,9 +5,10 @@ import {
   Select,
   Textarea,
 } from "flowbite-react";
-import { Gender, Student } from "../Student.type";
+import { Gender, Student } from "../students.type";
 import { useState } from "react";
 import { IoClose, IoAddCircle } from "react-icons/io5";
+import { STUDENTS } from "../../../constants/locals/en-US.constants";
 
 type Props = {
   onSubmit: any;
@@ -60,10 +61,10 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
     >
       <div className="flex gap-20 h-80  w-full">
         <div className="flex flex-col gap-4 flex-1">
-          <h3 className="text-start font-bold text-white">Children Details</h3>
+          <h3 className="text-start font-bold text-white">{STUDENTS.FORM_PAGE.STUDENT_DETAILS_SECTION}</h3>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="firstName" value="First Name" />
+              <Label htmlFor="firstName" value={STUDENTS.FORM_PAGE.FIRST_NAME_LBL} />
               <TextInput
                 id="firstName"
                 name="firstName"
@@ -73,7 +74,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
               />
             </div>
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="lastName" value="Last Name" />
+              <Label htmlFor="lastName" value={STUDENTS.FORM_PAGE.LAST_NAME_LBL} />
               <TextInput
                 id="lastName"
                 name="lastName"
@@ -83,7 +84,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
               />
             </div>
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="id" value="ID" />
+              <Label htmlFor="id" value={STUDENTS.FORM_PAGE.ID_NAME_LBL} />
               <TextInput
                 id="id"
                 name="id"
@@ -97,7 +98,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
 
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="birthday" value="Date Of Birth" />
+              <Label htmlFor="birthday" value={STUDENTS.FORM_PAGE.DOB_NAME_LBL} />
               <Datepicker
                 minDate={birthdayMinDate}
                 maxDate={birthdayMaxDate}
@@ -105,7 +106,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
               />
             </div>
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="gender" value="Gender" />
+              <Label htmlFor="gender" value={STUDENTS.FORM_PAGE.GENDER_NAME_LBL} />
               <Select id="gender" name="gender" required>
                 {Object.entries(Gender).map(([objKey, value]) => {
                   return (
@@ -172,7 +173,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
         </div>
 
         <div className="flex flex-col gap-4 flex-1">
-          <h3 className="text-start font-bold text-white">1st Parent</h3>
+          <h3 className="text-start font-bold text-white">{STUDENTS.FORM_PAGE.FIRST_PARENTS_DETAILS_SECTION}</h3>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
               <Label
@@ -243,7 +244,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
         </div>
 
         <div className="flex flex-col gap-4 flex-1">
-          <h3 className="text-start font-bold text-white">2nd Parent</h3>
+          <h3 className="text-start font-bold text-white">{STUDENTS.FORM_PAGE.SECOND_PARENTS_DETAILS_SECTION}</h3>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
               <Label

@@ -1,4 +1,4 @@
-import { API_URLS } from "../../Config/url.constants";
+import { API_URLS } from "../../constants/endpoints.constants";
 
 export async function fetchChats() {
   const response = await fetch(API_URLS.getMessages);

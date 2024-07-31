@@ -8,9 +8,9 @@ import {
   StudentListOutlet,
   StudentDetailsPage,
   EditStudentPage
-} from "./Pages/index.ts";
+} from "./pages/index.ts";
 import App from "./App.tsx";
-import ChatContent from "./Components/Chat/ChatContent/ChatContent.tsx";
+import ChatContent from "./components/chat/ChatContent/ChatContent.tsx";
 
 export const ROUTER = createBrowserRouter([
   {

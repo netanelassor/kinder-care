@@ -1,4 +1,4 @@
-import Dashboard from "../Components/Dashboard/Dashboard";
+import Dashboard from "../components/dashboard/Dashboard";
 export default function DashboardPage(): JSX.Element {
     return (
       <Dashboard/>

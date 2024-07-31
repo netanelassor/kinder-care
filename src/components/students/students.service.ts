@@ -1,5 +1,5 @@
-import { API_URLS } from "../../Config/url.constants";
-import { Student } from "./Student.type";
+import { API_URLS } from "../../constants/endpoints.constants";
+import { Student } from "./students.type";
 
 export async function fetchStudents(): Promise<Student[]> {
   const response = await fetch(API_URLS.getStudents);

@@ -1,7 +1,7 @@
-import { Gender, Student } from "../Student.type";
+import { Gender, Student } from "../students.type";
 import { Tooltip, Badge, Table } from "flowbite-react";
 import { GrUser, GrUserFemale, GrPhone, GrMailOption } from "react-icons/gr";
-import UserAvatar from "../../Shared/Avatar";
+import UserAvatar from "../../shared/Avatar";
 import { useNavigate } from "react-router-dom";
 
 type Props = {

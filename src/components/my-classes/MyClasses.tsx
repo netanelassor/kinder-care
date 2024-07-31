@@ -1,4 +1,4 @@
-import PageHeader from "../Layout/PageHeader/PageHeader";
+import PageHeader from "../layout/page-header/PageHeader";
 
 export default function MyClasses(): JSX.Element {
   return (

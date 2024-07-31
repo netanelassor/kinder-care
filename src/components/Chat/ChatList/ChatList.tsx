@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchChats } from "../Chat.service";
 import { Link } from "react-router-dom";
-import Loading from "../../Shared/Loading";
+import Loading from "../../shared/Loading";
 
 type ChatListProps = {
   selectConversation: any;

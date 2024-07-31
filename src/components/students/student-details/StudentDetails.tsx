@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchStudent } from "../StudentList.service";
+import { fetchStudent } from "../students.service";
 import { Link, Outlet, useParams } from "react-router-dom";
-import Loading from "../../Shared/Loading";
-import ErrorBlock from "../../Shared/ErrorBlock/ErrorBlock";
+import Loading from "../../shared/Loading";
+import ErrorBlock from "../../shared/ErrorBlock/ErrorBlock";
 import { Button } from "flowbite-react";
 import { format, parseISO } from "date-fns";
 import { FaBirthdayCake } from "react-icons/fa";
-import PageHeader from "../../Layout/PageHeader/PageHeader";
+import PageHeader from "../../layout/page-header/PageHeader";
 import { HiOutlineArrowLeft, HiPencil } from "react-icons/hi";
 
 export default function StudentDetails(): JSX.Element {

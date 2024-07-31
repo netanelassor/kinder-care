@@ -1,5 +1,5 @@
-import { Student } from "../Student.type";
-import UserAvatar from "../../Shared/Avatar";
+import { Student } from "../students.type";
+import UserAvatar from "../../shared/Avatar";
 import "./StudentCardItem.scss";
 import { Tooltip, Badge, Button, Card } from "flowbite-react";
 import { Link } from "react-router-dom";

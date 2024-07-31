@@ -1,4 +1,4 @@
-import UserAvatar from "../../Shared/Avatar";
+import UserAvatar from "../../shared/Avatar";
 import { Sidebar } from "flowbite-react";
 import logo from "../../../assets/favicon.ico";
 import { PiBooksDuotone, PiStudent, PiWechatLogoDuotone } from "react-icons/pi";

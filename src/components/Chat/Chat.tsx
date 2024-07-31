@@ -1,5 +1,5 @@
 import { Card } from "flowbite-react";
-import PageHeader from "../Layout/PageHeader/PageHeader";
+import PageHeader from "../layout/page-header/PageHeader";
 import ChatList from "./ChatList/ChatList";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";

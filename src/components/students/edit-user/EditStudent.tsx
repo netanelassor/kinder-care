@@ -1,14 +1,14 @@
 import { Button, Drawer } from "flowbite-react";
-import StudentForm from "../StudentForm/StudentForm";
-import { updateStudent, fetchStudent } from "../StudentList.service";
+import StudentForm from "../student-form/StudentForm";
+import { updateStudent, fetchStudent } from "../students.service";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { queryClient } from "../../../Config/query.client";
-import { Gender, ParentContact, Student } from "../Student.type";
+import { queryClient } from "../../../utils/query.client";
+import { Gender, ParentContact, Student } from "../students.type";
 import { FaRegUser } from "react-icons/fa";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import Loading from "../../Shared/Loading";
-import ErrorBlock from "../../Shared/ErrorBlock/ErrorBlock";
+import { useNavigate, useParams } from "react-router-dom";
+import ErrorBlock from "../../shared/ErrorBlock/ErrorBlock";
 import { useState } from "react";
+import { Loading } from "../../shared";
 
 
 export default function EditStudent(): JSX.Element {
