@@ -1,8 +1,8 @@
 import "./App.css";
-import { SidebarNav } from "./Components/Layout/Sidebar/Sidebar";
+import { SidebarNav } from "./components/layout/sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "./Config/query.client";
+import { queryClient } from "./utils/query.client";
 
 function App() {
 

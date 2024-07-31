@@ -1,5 +1,5 @@
-import { Student } from "../Student.type";
-import StudentCardItem from "../StudentCardItem/StudentCardItem";
+import { Student } from "../students.type";
+import StudentCardItem from "../student-card-item/StudentCardItem";
 
 type Props = {
   studentList: Student[];

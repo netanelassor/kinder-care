@@ -1,9 +1,9 @@
 import { Button, Drawer } from "flowbite-react";
-import StudentForm from "../StudentForm/StudentForm";
-import { addStudent } from "../StudentList.service";
+import StudentForm from "../student-form/StudentForm";
+import { addStudent } from "../students.service";
 import { useMutation } from "@tanstack/react-query";
-import { queryClient } from "../../../Config/query.client";
-import { Gender, ParentContact, Student } from "../Student.type";
+import { queryClient } from "../../../utils/query.client";
+import { Gender, ParentContact, Student } from "../students.type";
 import { FaRegUser } from "react-icons/fa";
 
 type NewStudentProp = {
@@ -47,14 +47,14 @@ export default function NewStudent({
       id: formData.id,
       firstName: formData.firstName,
       lastName: formData.lastName,
-      allergies: formData.allergies || [],
+      allergies: formData.allergies.split(',') || [],
       birthday: new Date(formData.birthday).toISOString(),
       gender: formData.gender,
       parentContact: parents,
       profileImgUrl: `https://xsgames.co/randomusers/avatar.php?g=female`,
     };
 
-    console.log('newStudent',newStudent);
+    //console.log('newStudent',newStudent);
     mutate(newStudent);
   }
 

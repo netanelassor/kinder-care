@@ -1,7 +1,8 @@
-import { Gender, Student } from "../Student.type";
+import { Gender, Student } from "../students.type";
 import { Tooltip, Badge, Table } from "flowbite-react";
 import { GrUser, GrUserFemale, GrPhone, GrMailOption } from "react-icons/gr";
-import UserAvatar from "../../Shared/Avatar";
+import UserAvatar from "../../shared/Avatar";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   studentList: Student[];
@@ -10,8 +11,9 @@ type Props = {
 export default function StudentListTableView({
   studentList,
 }: Props): JSX.Element {
-  const columnList: string[] = ["ID", "Name", "Allergies", "Gender", "Parents"];
+  const navigate = useNavigate();
 
+  const columnList: string[] = ["ID", "Name", "Allergies", "Gender", "Parents"];
   return (
     <>
       <div className="overflow-x-auto">
@@ -26,7 +28,8 @@ export default function StudentListTableView({
               return (
                 <Table.Row
                   key={studentIndex}
-                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                  className="bg-white dark:border-gray-700 dark:bg-gray-800 pointer"
+                  onClick={() => navigate(`/students/${student.id}`)}
                 >
                   <Table.Cell>{student.id}</Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -41,9 +44,9 @@ export default function StudentListTableView({
                   <Table.Cell>
                     {student.allergies?.map((item, allergyItem) => {
                       return (
-                        <div key={allergyItem}>
-                          <Badge color="pink">{item}</Badge>
-                        </div>
+                        <div key={allergyItem} className="flex gap-2 items-center justify-center px-2 py-1 rounded-full text-xs bg-red-500 text-white text-center">
+                        {item}
+                      </div>
                       );
                     })}
                   </Table.Cell>
