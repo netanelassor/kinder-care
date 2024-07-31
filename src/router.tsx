@@ -7,6 +7,7 @@ import {
   DashboardPage,
   StudentListOutlet,
   StudentDetailsPage,
+  EditStudentPage
 } from "./Pages/index.ts";
 import App from "./App.tsx";
 import ChatContent from "./Components/Chat/ChatContent/ChatContent.tsx";
@@ -46,6 +47,12 @@ export const ROUTER = createBrowserRouter([
           {
             path: "/students/:id",
             element: <StudentDetailsPage />,
+            children: [
+              {
+                path: "/students/:id/edit",
+                element: <EditStudentPage />
+              }
+            ],
           },
         ]
       }

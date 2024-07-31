@@ -1,15 +1,22 @@
-import { Label, TextInput, Datepicker, Select, Button, Textarea } from "flowbite-react";
-import { Gender } from "../Student.type";
+import {
+  Label,
+  TextInput,
+  Datepicker,
+  Select,
+  Textarea,
+} from "flowbite-react";
+import { Gender, Student } from "../Student.type";
 import { useState } from "react";
 import { IoClose, IoAddCircle } from "react-icons/io5";
 
 type Props = {
   onSubmit: any;
   children: string | JSX.Element | JSX.Element[] | boolean;
+  inputData?: Student | undefined;
 };
 
-const StudentForm = ({ onSubmit, children }: Props) => {
-  const [allergies, setAllergies] = useState<string[]>([]);
+const StudentForm = ({ inputData, onSubmit, children }: Props) => {
+  const [allergies, setAllergies] = useState<string[]>(inputData?.allergies ?? []);
   const [newAllergy, setNewAllergy] = useState<string>("");
 
   const currentDate = new Date();
@@ -38,7 +45,7 @@ const StudentForm = ({ onSubmit, children }: Props) => {
       setAllergies([...allergies, newAllergy.trim()]);
       setNewAllergy("");
     }
-  };
+  }
 
   const handleRemoveAllergy = (index: number) => {
     const newAllergies = allergies.filter((_, i) => i !== index);
@@ -57,15 +64,34 @@ const StudentForm = ({ onSubmit, children }: Props) => {
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
               <Label htmlFor="firstName" value="First Name" />
-              <TextInput id="firstName" name="firstName" type="text" required />
+              <TextInput
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                defaultValue={inputData?.firstName ?? ""}
+              />
             </div>
             <div className="flex flex-col text-start w-full">
               <Label htmlFor="lastName" value="Last Name" />
-              <TextInput id="lastName" name="lastName" type="text" required />
+              <TextInput
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                defaultValue={inputData?.lastName ?? ""}
+              />
             </div>
             <div className="flex flex-col text-start w-full">
               <Label htmlFor="id" value="ID" />
-              <TextInput id="id" name="id" type="text" required />
+              <TextInput
+                id="id"
+                name="id"
+                type="text"
+                required
+                defaultValue={inputData?.id ?? ""}
+                disabled={inputData && inputData.id ? true : false}
+              />
             </div>
           </div>
 
@@ -95,7 +121,14 @@ const StudentForm = ({ onSubmit, children }: Props) => {
           <div className="flex bg-gray-700 p-4 rounded">
             <div className="flex flex-col text-start w-full">
               <Label htmlFor="allergies" value="Allergies" />
-              <Textarea id="allergies" name="allergies" rows={2} value={allergies} className="hidden"/>
+              <Textarea
+                id="allergies"
+                name="allergies"
+                rows={2}
+                value={allergies}
+                className="hidden"
+                readOnly
+              />
 
               <div className="flex flex-col gap-4">
                 <div className="flex gap-2">
@@ -105,17 +138,16 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                     value={newAllergy}
                     onChange={(e) => setNewAllergy(e.target.value)}
                     placeholder="Add a new allergy"
-                    type="text"      
+                    type="text"
                   />
 
                   <button
-                  type="button"
+                    type="button"
                     onClick={handleAddAllergy}
                     className="text-green-400 text-4xl hover:text-green-500"
                   >
                     <IoAddCircle />
                   </button>
-                  
                 </div>
                 <div className="flex gap-2">
                   {allergies.map((allergy, index) => (
@@ -125,7 +157,7 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                     >
                       {allergy}
                       <button
-                      type="button"
+                        type="button"
                         onClick={() => handleRemoveAllergy(index)}
                         className="bg-red-900 text-white rounded-full w-5 h-5 flex items-center justify-center hover:bg-red-800 "
                       >
@@ -152,6 +184,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 name="primaryParentFirstName"
                 type="text"
                 required
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 0
+                    ? inputData.parentContact[0].firstName
+                    : ""
+                }
               />
             </div>
             <div className="flex flex-col text-start w-full">
@@ -164,6 +201,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 name="primaryParentLastName"
                 type="text"
                 required
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 0
+                    ? inputData.parentContact[0].lastName
+                    : ""
+                }
               />
             </div>
           </div>
@@ -176,6 +218,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 id="primaryParentEmail"
                 name="primaryParentEmail"
                 required
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 0
+                    ? inputData.parentContact[0].email
+                    : ""
+                }
               />
             </div>
             <div className="flex flex-col text-start w-full">
@@ -185,6 +232,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 placeholder="050-1234567"
                 id="primaryParentPhone"
                 name="primaryParentPhone"
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 0
+                    ? inputData.parentContact[0].phone
+                    : ""
+                }
               />
             </div>
           </div>
@@ -203,6 +255,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 name="secondaryParentFirstName"
                 type="text"
                 required
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 1
+                    ? inputData.parentContact[1]?.firstName
+                    : ""
+                }
               />
             </div>
             <div className="flex flex-col text-start w-full">
@@ -215,6 +272,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 name="secondaryParentLastName"
                 type="text"
                 required
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 1
+                    ? inputData.parentContact[1]?.lastName
+                    : ""
+                }
               />
             </div>
           </div>
@@ -227,6 +289,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 id="secondaryParentEmail"
                 name="secondaryParentEmail"
                 required
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 1
+                    ? inputData.parentContact[1]?.email
+                    : ""
+                }
               />
             </div>
             <div className="flex flex-col text-start w-full">
@@ -236,6 +303,11 @@ const StudentForm = ({ onSubmit, children }: Props) => {
                 placeholder="050-1234567"
                 id="secondaryParentPhone"
                 name="secondaryParentPhone"
+                defaultValue={
+                  inputData && inputData?.parentContact.length > 1
+                    ? inputData.parentContact[1]?.phone
+                    : ""
+                }
               />
             </div>
           </div>

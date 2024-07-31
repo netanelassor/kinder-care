@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchStudent } from "../StudentList.service";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading";
 import ErrorBlock from "../../Shared/ErrorBlock/ErrorBlock";
 import { Button } from "flowbite-react";
@@ -19,6 +19,7 @@ export default function StudentDetails(): JSX.Element {
 
   return (
     <>
+    <Outlet />
       <PageHeader
         title={`Student Details ${
           data ? "- " + data.firstName + " " + data.lastName : " "
@@ -36,10 +37,12 @@ export default function StudentDetails(): JSX.Element {
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between gap-4">
               <Button gradientDuoTone="purpleToBlue" pill>
-                <div className="flex gap-2">
-                  <HiPencil className="h-5 w-5" />
-                  Edit
-                </div>
+                <Link to="edit">
+                  <div className="flex gap-2">
+                    <HiPencil className="h-5 w-5" />
+                    Edit
+                  </div>
+                </Link>
               </Button>
               <Button gradientDuoTone="purpleToBlue" outline pill>
                 <div className="flex gap-2">
@@ -77,7 +80,10 @@ export default function StudentDetails(): JSX.Element {
                     <h3 className="text-sm">Allergies:</h3>
                     {data.allergies?.map((item, allergyIndex) => {
                       return (
-                        <div key={allergyIndex} className="flex gap-2 items-center justify-center px-2 py-1 rounded-full text-xs bg-red-500 text-white text-center">
+                        <div
+                          key={allergyIndex}
+                          className="flex gap-2 items-center justify-center px-2 py-1 rounded-full text-xs bg-red-500 text-white text-center"
+                        >
                           {item}
                         </div>
                       );

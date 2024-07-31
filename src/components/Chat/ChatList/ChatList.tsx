@@ -28,11 +28,11 @@ export default function ChatList({
       <div className="bg-gray-700 p-2 px-4 text-start">Chat</div>
       {conversations.map((conversation: any) => (
         <Link
+          key={conversation.conversation_id}
           to={`/chat/${conversation.conversation_id}`}
           onClick={() => selectConversation(conversation.conversation_id)}
         >
           <div
-            key={conversation.conversation_id}
             className={`p-3 rounded cursor-pointer hover:bg-gray-900 text-start ${
               selectedConversationId === conversation.conversation_id
                 ? "bg-gray-900"

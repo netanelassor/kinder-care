@@ -2,7 +2,6 @@ import { useRouteError } from "react-router-dom";
 
 export default function ErrorPage():JSX.Element {
   const error:any = useRouteError();
-  console.error(error);
 
   return (
     <div id="error-page" className="flex flex-col w-screen w-full h-full justify-center">
