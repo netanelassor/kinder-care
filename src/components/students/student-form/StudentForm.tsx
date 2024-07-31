@@ -178,7 +178,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
             <div className="flex flex-col text-start w-full">
               <Label
                 htmlFor="primaryParentFirstName"
-                value={STUDENTS.FORM_PAGE.FIRST_PARENTS_DETAILS_SECTION}
+                value={STUDENTS.FORM_PAGE.FIRST_NAME_LBL}
               />
               <TextInput
                 id="primaryParentFirstName"
