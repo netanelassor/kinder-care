@@ -16,8 +16,13 @@ export const GENERAL = {
         SECOND_PARENTS_DETAILS_SECTION:"2st Parents Details",
         FIRST_NAME_LBL:"First Name",
         LAST_NAME_LBL:"Last Name",
-        ID_NAME_LBL:"ID",
-        DOB_NAME_LBL:"Date Of Birth",
-        GENDER_NAME_LBL:"Gender",
+        ID_LBL:"ID",
+        DOB_LBL:"Date Of Birth",
+        GENDER_LBL:"Gender",
+        ALLERGIES_LBL:"Allergies",
+        ALLERGIES_ADD_LBL:"Add New Allergy",
+        EMAIL_LBL:"Email",
+        PHONE_LBL:"Phone",
+
     }
   };

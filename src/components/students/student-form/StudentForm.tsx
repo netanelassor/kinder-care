@@ -84,7 +84,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
               />
             </div>
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="id" value={STUDENTS.FORM_PAGE.ID_NAME_LBL} />
+              <Label htmlFor="id" value={STUDENTS.FORM_PAGE.ID_LBL} />
               <TextInput
                 id="id"
                 name="id"
@@ -98,7 +98,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
 
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="birthday" value={STUDENTS.FORM_PAGE.DOB_NAME_LBL} />
+              <Label htmlFor="birthday" value={STUDENTS.FORM_PAGE.DOB_LBL} />
               <Datepicker
                 minDate={birthdayMinDate}
                 maxDate={birthdayMaxDate}
@@ -106,7 +106,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
               />
             </div>
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="gender" value={STUDENTS.FORM_PAGE.GENDER_NAME_LBL} />
+              <Label htmlFor="gender" value={STUDENTS.FORM_PAGE.GENDER_LBL} />
               <Select id="gender" name="gender" required>
                 {Object.entries(Gender).map(([objKey, value]) => {
                   return (
@@ -121,7 +121,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
 
           <div className="flex bg-gray-700 p-4 rounded">
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="allergies" value="Allergies" />
+              <Label htmlFor="allergies" value={STUDENTS.FORM_PAGE.ALLERGIES_LBL} />
               <Textarea
                 id="allergies"
                 name="allergies"
@@ -138,7 +138,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
                     name="allergiesChip"
                     value={newAllergy}
                     onChange={(e) => setNewAllergy(e.target.value)}
-                    placeholder="Add a new allergy"
+                    placeholder={STUDENTS.FORM_PAGE.ALLERGIES_ADD_LBL}
                     type="text"
                   />
 
@@ -178,7 +178,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
             <div className="flex flex-col text-start w-full">
               <Label
                 htmlFor="primaryParentFirstName"
-                value="1st Parent - First Name"
+                value={STUDENTS.FORM_PAGE.FIRST_PARENTS_DETAILS_SECTION}
               />
               <TextInput
                 id="primaryParentFirstName"
@@ -195,7 +195,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
             <div className="flex flex-col text-start w-full">
               <Label
                 htmlFor="primaryParentLastName"
-                value="1st Parent - Last Name"
+                value={STUDENTS.FORM_PAGE.LAST_NAME_LBL}
               />
               <TextInput
                 id="primaryParentLastName"
@@ -212,7 +212,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
           </div>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="primaryParentEmail" value="Email" />
+              <Label htmlFor="primaryParentEmail" value={STUDENTS.FORM_PAGE.EMAIL_LBL} />
               <TextInput
                 type="email"
                 placeholder="name@example.com"
@@ -227,7 +227,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
               />
             </div>
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="primaryParentPhone" value="Phone" />
+              <Label htmlFor="primaryParentPhone" value={STUDENTS.FORM_PAGE.PHONE_LBL} />
               <TextInput
                 type="tel"
                 placeholder="050-1234567"
@@ -249,7 +249,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
             <div className="flex flex-col text-start w-full">
               <Label
                 htmlFor="secondaryParentFirstName"
-                value="2nd Parent - First Name"
+                value={STUDENTS.FORM_PAGE.FIRST_NAME_LBL}
               />
               <TextInput
                 id="secondaryParentFirstName"
@@ -266,7 +266,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
             <div className="flex flex-col text-start w-full">
               <Label
                 htmlFor="primaryParentLastName"
-                value="2nd Parent - Last Name"
+                value={STUDENTS.FORM_PAGE.LAST_NAME_LBL}
               />
               <TextInput
                 id="secondaryParentLastName"
@@ -283,7 +283,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
           </div>
           <div className="flex gap-4">
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="secondaryParentEmail" value="Email" />
+              <Label htmlFor="secondaryParentEmail" value={STUDENTS.FORM_PAGE.EMAIL_LBL} />
               <TextInput
                 type="email"
                 placeholder="name@example.com"
@@ -298,7 +298,7 @@ const StudentForm = ({ inputData, onSubmit, children }: Props) => {
               />
             </div>
             <div className="flex flex-col text-start w-full">
-              <Label htmlFor="secondaryParentPhone" value="Phone" />
+              <Label htmlFor="secondaryParentPhone" value={STUDENTS.FORM_PAGE.PHONE_LBL} />
               <TextInput
                 type="tel"
                 placeholder="050-1234567"
